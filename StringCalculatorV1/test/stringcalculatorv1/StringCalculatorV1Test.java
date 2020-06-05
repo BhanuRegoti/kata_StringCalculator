@@ -86,5 +86,14 @@ public class StringCalculatorV1Test {
         //System.out.println(instance.Add("//[**]\n1**2**3"));
         assertEquals(instance.Add("//[**]\n1**2**3"),6);
     }
-    
+        @Test
+    public final void multipleDelimiterWithSingleCount() throws Exception{
+        //System.out.println(instance.Add("//[**]\n1**2**3"));
+        assertEquals(instance.Add("//[*][/]\n1*2/3"),6);
+    }
+        @Test
+    public final void multipleDelimiterWithMultiCount() throws Exception{
+        //System.out.println(instance.Add("//[**]\n1**2**3"));
+        assertEquals(instance.Add("//[**][//]\n1**2//3"),6);
+    }
    }

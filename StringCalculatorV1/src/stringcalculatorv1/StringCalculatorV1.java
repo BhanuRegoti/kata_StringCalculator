@@ -40,7 +40,6 @@ public class StringCalculatorV1 {
             //System.out.println(string.charAt(2));
             if(string.charAt(2)=='['){
             String number=singleDelimitersWithMultipleCount(string);
-            System.out.println(number);
             String[] numbers=number.split(delimiter);
             return getSum(numbers);
             }
@@ -63,26 +62,25 @@ public class StringCalculatorV1 {
         s=s.replace("?", ",");
         s=s.replace("^", ",");
         s=s.replace("$", ",");
-        String st=null;
-        //ArrayList<String> st = new ArrayList<String>();
+       // String st=null;
+        ArrayList<String> st = new ArrayList<String>();
         for(int j=0;j<s.length();j++ ){
             if(s.charAt(j)=='['){
                 for(int k=j;k<s.length();k++){
                     if(s.charAt(k)==']'){
                         String str=s.substring(j+1,k);
-                        st=str;
+                        st.add(str);
                     }
                 }
             }
         }   
         String secondString = s.substring(s.indexOf('\n')+1);
-        for(int k=0;k<st.length();k++){
-            if(secondString.contains(st)){
-                secondString  = secondString.replace(st, ",");
+        for(int k=0;k<st.size();k++){
+            if(secondString.contains(st.get(k))){
+                secondString  = secondString.replaceAll(st.get(k), ",");
             }
         }  
-        System.out.println("Second"+secondString);
-        return secondString;
+         return secondString;
     }
     private String startsWithSlashesReturns(String string) {
         String secondString;

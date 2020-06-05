@@ -81,4 +81,10 @@ public class StringCalculatorV1Test {
     public final void numberGreater1000() throws Exception{
         assertEquals(instance.Add("1001,20,10"),30);
     }
+    @Test
+    public final void delimiterLength() throws Exception{
+        //System.out.println(instance.Add("//[**]\n1**2**3"));
+        assertEquals(instance.Add("//[**]\n1**2**3"),6);
+    }
+    
    }

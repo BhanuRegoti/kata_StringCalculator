@@ -37,24 +37,62 @@ public class StringCalculatorV1 {
         }else if(string.length()==1){
             return StringToInt(string);
         }else if(string.startsWith("//")){
-            String[] number=startsWithSlashesReturns(string);
-            return getSum(number);
-        } else{
+            //System.out.println(string.charAt(2));
+            if(string.charAt(2)=='['){
+            String number=singleDelimitersWithMultipleCount(string);
+            System.out.println(number);
+            String[] numbers=number.split(delimiter);
+            return getSum(numbers);
+            }
+            else{
+            String number= startsWithSlashesReturns(string);
+            String[] numbers=number.split(delimiter);
+            return getSum(numbers);
+            }
+        }
+        else{
             String[] numbers=string.split(delimiter);
             return getSum(numbers);
         }  
        
     }
-
-    private String[] startsWithSlashesReturns(String string) {
+    
+    private String singleDelimitersWithMultipleCount(String s) {
+        s=s.replace("*", ",");
+        s=s.replace("+", ",");
+        s=s.replace("?", ",");
+        s=s.replace("^", ",");
+        s=s.replace("$", ",");
+        String st=null;
+        //ArrayList<String> st = new ArrayList<String>();
+        for(int j=0;j<s.length();j++ ){
+            if(s.charAt(j)=='['){
+                for(int k=j;k<s.length();k++){
+                    if(s.charAt(k)==']'){
+                        String str=s.substring(j+1,k);
+                        st=str;
+                    }
+                }
+            }
+        }   
+        String secondString = s.substring(s.indexOf('\n')+1);
+        for(int k=0;k<st.length();k++){
+            if(secondString.contains(st)){
+                secondString  = secondString.replace(st, ",");
+            }
+        }  
+        System.out.println("Second"+secondString);
+        return secondString;
+    }
+    private String startsWithSlashesReturns(String string) {
         String secondString;
         int a=string.indexOf('/');
         System.out.println(a);
         String delimiter1= string.substring(a+2,a+3);
         secondString=string.substring(string.indexOf('\n')+1);
         secondString =secondString.replace(delimiter1, ",");
-        String[] number=secondString.split(delimiter);
-        return number;
+        //String[] number=secondString.split(delimiter);
+        return secondString;
     }
     private int StringToInt(String input){
         return Integer.parseInt(input);

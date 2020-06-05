@@ -66,10 +66,10 @@ public class StringCalculatorV1 {
         int sum=0;
         negativeException(input);
         for(String i: input){
-            if(Integer.parseInt(i)<0){
-                throw new Exception("Negatives not allowed");
-            }
-        sum+=Integer.parseInt(i);
+           if(StringToInt(i)<=1000){
+                sum+=StringToInt(i);
+            } 
+        
         }
         return sum;
     }

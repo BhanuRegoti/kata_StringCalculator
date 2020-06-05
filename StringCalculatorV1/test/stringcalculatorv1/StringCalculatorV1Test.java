@@ -77,4 +77,8 @@ public class StringCalculatorV1Test {
         instance.Add("");
         assertEquals(instance.getCalledCount(),2);
     }
+    @Test
+    public final void numberGreater1000() throws Exception{
+        assertEquals(instance.Add("1001,20,10"),30);
+    }
    }

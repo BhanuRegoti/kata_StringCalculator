@@ -23,8 +23,10 @@ public class StringCalculatorV1 {
         StringCalculatorV1 s=new StringCalculatorV1();
         System.out.println(s.Add(input));   
     }
+    private final String delimiter =",|\n";
+
     public int Add(String string) {
-        String[] numbers=string.split(",");
+        String[] numbers=string.split(delimiter);
         if(isEmpty(string)){
             return 0;
         }else if(string.length()==1){

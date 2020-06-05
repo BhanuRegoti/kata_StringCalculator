@@ -15,8 +15,9 @@ import static org.junit.Assert.*;
  * @author bpreg
  */
 public class StringCalculatorV1Test {
-    
+    private StringCalculatorV1 instance;
     public StringCalculatorV1Test() {
+        instance = new StringCalculatorV1();
     }
     
     @BeforeClass
@@ -36,22 +37,22 @@ public class StringCalculatorV1Test {
     }*/
 @Test
     public void emptyStringReturnsZero() {
-        StringCalculatorV1 instance =new StringCalculatorV1();
         assertEquals(0,instance.Add(""));
     }
     @Test
     public void singleValueReturn(){
-        StringCalculatorV1 instance =new StringCalculatorV1();
         assertEquals(1,instance.Add("1"));
     }
     @Test
     public void commaDelimiterAddition(){
-        StringCalculatorV1 instance= new StringCalculatorV1();
         assertEquals(3,instance.Add("1,2"));
     }
     @Test
     public void multipleNumberAddition(){
-        StringCalculatorV1 instance =new StringCalculatorV1();
         assertEquals(8,instance.Add("1,2,5"));
+    }
+    @Test
+    public void multipleDelimiters(){
+        assertEquals(6,instance.Add("1,2\n3"));
     }
    }

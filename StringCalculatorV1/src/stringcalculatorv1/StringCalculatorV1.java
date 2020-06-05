@@ -5,6 +5,8 @@
  */
 package stringcalculatorv1;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -59,7 +61,7 @@ public class StringCalculatorV1 {
     }
     private int getSum(String[] input) throws Exception{
         int sum=0;
-     
+        negativeException(input);
         for(String i: input){
             if(Integer.parseInt(i)<0){
                 throw new Exception("Negatives not allowed");
@@ -67,5 +69,19 @@ public class StringCalculatorV1 {
         sum+=Integer.parseInt(i);
         }
         return sum;
+    }
+    
+    private void negativeException(String[] numbers) throws RuntimeException {
+        List negativeNumbers=new ArrayList();
+        boolean exceptionFlag = false;
+        for(String i:numbers){
+            if(StringToInt(i)<0){
+            negativeNumbers.add(StringToInt(i));
+                exceptionFlag = true;
+            }
+        }
+        if(exceptionFlag){
+            throw new RuntimeException("Negatives not allowed "+negativeNumbers.toString());
+        }
     }
 }

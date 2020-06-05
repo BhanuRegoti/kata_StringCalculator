@@ -63,4 +63,12 @@ public class StringCalculatorV1Test {
     public void negativeInputReturns() throws Exception{
     instance.Add("-1");
     }
+    @Test
+    public final void multipleNegativeNumbersExceptionMessage() throws Exception {
+        try {
+            instance.Add("1,-2,3,-4,5,6");
+        } catch (Exception e) {
+            assertEquals("Negatives not allowed [-2, -4]", e.getMessage());
+        }    
+    }
    }

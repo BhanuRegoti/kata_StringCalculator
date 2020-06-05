@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author bpreg
  */
 public class StringCalculatorV1 {
-
+    private int addCount=0;
     /**
      * @param args the command line arguments
      */
@@ -26,8 +26,11 @@ public class StringCalculatorV1 {
         System.out.println(s.Add(input));   
     }
     private String delimiter =",|\n";
-
+    private void callCount(){
+        addCount++;
+    }
     public int Add(String string) throws Exception {
+        callCount();
          String secondString;
         if(isEmpty(string)){
             return 0;
@@ -83,5 +86,8 @@ public class StringCalculatorV1 {
         if(exceptionFlag){
             throw new RuntimeException("Negatives not allowed "+negativeNumbers.toString());
         }
+    }
+    public int getCalledCount(){
+        return addCount;
     }
 }

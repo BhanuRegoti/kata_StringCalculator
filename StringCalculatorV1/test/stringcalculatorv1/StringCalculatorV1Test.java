@@ -71,4 +71,10 @@ public class StringCalculatorV1Test {
             assertEquals("Negatives not allowed [-2, -4]", e.getMessage());
         }    
     }
+        @Test
+    public final void callCountValue() throws Exception{
+        instance.Add("1,2");
+        instance.Add("");
+        assertEquals(instance.getCalledCount(),2);
+    }
    }

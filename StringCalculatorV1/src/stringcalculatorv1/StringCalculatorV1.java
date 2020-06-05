@@ -16,7 +16,7 @@ public class StringCalculatorV1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
         Scanner sc=new Scanner(System.in);
         String input=sc.nextLine();
@@ -25,7 +25,7 @@ public class StringCalculatorV1 {
     }
     private String delimiter =",|\n";
 
-    public int Add(String string) {
+    public int Add(String string) throws Exception {
          String secondString;
         if(isEmpty(string)){
             return 0;
@@ -57,11 +57,13 @@ public class StringCalculatorV1 {
     private boolean isEmpty(String input){
     return input.isEmpty();
     }
-    private int getSum(String[] input){
+    private int getSum(String[] input) throws Exception{
         int sum=0;
      
         for(String i: input){
-            
+            if(Integer.parseInt(i)<0){
+                throw new Exception("Negatives not allowed");
+            }
         sum+=Integer.parseInt(i);
         }
         return sum;

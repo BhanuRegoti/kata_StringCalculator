@@ -36,27 +36,31 @@ public class StringCalculatorV1Test {
         fail("The test case is a prototype.");
     }*/
 @Test
-    public void emptyStringReturnsZero() {
+    public void emptyStringReturnsZero() throws Exception {
         assertEquals(0,instance.Add(""));
     }
     @Test
-    public void singleValueReturn(){
+    public void singleValueReturn() throws Exception{
         assertEquals(1,instance.Add("1"));
     }
     @Test
-    public void commaDelimiterAddition(){
+    public void commaDelimiterAddition() throws Exception{
         assertEquals(3,instance.Add("1,2"));
     }
     @Test
-    public void multipleNumberAddition(){
+    public void multipleNumberAddition() throws Exception{
         assertEquals(8,instance.Add("1,2,5"));
     }
     @Test
-    public void multipleDelimiters(){
+    public void multipleDelimiters() throws Exception{
         assertEquals(6,instance.Add("1,2\n3"));
     }
     @Test
-    public void delimiterSpecified(){
+    public void delimiterSpecified() throws Exception{
         assertEquals(3,instance.Add("//;\n1;2"));
+    }
+    @Test(expected=Exception.class)
+    public void negativeInputReturns() throws Exception{
+    instance.Add("-1");
     }
    }

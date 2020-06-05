@@ -55,4 +55,8 @@ public class StringCalculatorV1Test {
     public void multipleDelimiters(){
         assertEquals(6,instance.Add("1,2\n3"));
     }
+    @Test
+    public void delimiterSpecified(){
+        assertEquals(3,instance.Add("//;\n1;2"));
+    }
    }

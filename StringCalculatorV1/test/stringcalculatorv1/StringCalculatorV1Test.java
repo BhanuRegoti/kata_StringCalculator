@@ -49,4 +49,9 @@ public class StringCalculatorV1Test {
         StringCalculatorV1 instance= new StringCalculatorV1();
         assertEquals(3,instance.Add("1,2"));
     }
+    @Test
+    public void multipleNumberAddition(){
+        StringCalculatorV1 instance =new StringCalculatorV1();
+        assertEquals(8,instance.Add("1,2,5"));
+    }
    }

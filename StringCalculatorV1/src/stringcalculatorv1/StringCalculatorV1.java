@@ -30,13 +30,20 @@ public class StringCalculatorV1 {
         }else if(string.length()==1){
             return StringToInt(string);
         }else {
-            return StringToInt(numbers[0])+StringToInt(numbers[1]);
+            return getSum(numbers);
         }    
     }
     private int StringToInt(String input){
         return Integer.parseInt(input);
     }
     private boolean isEmpty(String input){
-    	return input.isEmpty();
+    return input.isEmpty();
+    }
+    private int getSum(String[] input){
+        int sum=0;
+        for(String i: input){
+        sum+=Integer.parseInt(i);
+        }
+        return sum;
     }
 }
